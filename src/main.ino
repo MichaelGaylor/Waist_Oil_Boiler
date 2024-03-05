@@ -110,11 +110,11 @@ void solenoidTime (){ // o.5 second timer
         PulseCounter++;
   if (PulseCounter >= interval) {
 
- int pwmValue = interval; // Adjust this value between 0 (0% duty cycle) and 255 (100% duty cycle) as needed
-      analogWrite(pulsePin, pwmValue);
+ //int pwmValue = interval; // Adjust this value between 0 (0% duty cycle) and 255 (100% duty cycle) as needed
+     // analogWrite(pulsePin, pwmValue); // use these lines for a PWM Pump
 
-     //digitalWrite(pulsePin, !digitalRead(pulsePin));
-     //digitalWrite(ledPin, !digitalRead(ledPin));
+     digitalWrite(pulsePin, !digitalRead(pulsePin));
+     digitalWrite(ledPin, !digitalRead(ledPin));
  
     PulseCounter = 1;
 
@@ -228,9 +228,9 @@ updateDisplay();
        if (isnan(temp1) || isnan(temp2) || temp1 < 400 || temp2 < 300) {
          PulseCounter = 1;
         pulseEnabled = false;
-        analogWrite(pulsePin, 0); // This turns the PWM off
-        //digitalWrite(pulsePin, LOW);
-        //digitalWrite(ledPin, HIGH );
+       // analogWrite(pulsePin, 0); // This turns the PWM off
+        digitalWrite(pulsePin, LOW);
+        digitalWrite(ledPin, HIGH );
 }
 
 
